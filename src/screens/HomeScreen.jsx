@@ -8,7 +8,7 @@ const data = [
   {id: 2, name: 'Rice', stock: 15, unit: 'kg'},
   {id: 3, name: 'Corn', stock: 25, unit: 'kg'},
   {id: 4, name: 'Pulse', stock: 35, unit: 'kg'},
-  {id: 5, name: 'Flour', stock: 12, unit: 'kg'},
+  {id: 5, name: 'Flour', stock: 22, unit: 'kg'},
   {id: 6, name: 'Sugar', stock: 8, unit: 'kg'},
 ];
 
@@ -21,7 +21,7 @@ const HomeScreen = () => {
         <Pressable
           style={[
             styles.button,
-            view === 0 ? {backgroundColor: 'green'} : null,
+            view === 0 ? {backgroundColor: '#72C37AFF'} : null,
           ]}
           onPress={() => setview(0)}>
           <Text style={[styles.btnText, view === 0 ? {color: 'white'} : null]}>
@@ -32,7 +32,7 @@ const HomeScreen = () => {
         <Pressable
           style={[
             styles.button,
-            view === 1 ? {backgroundColor: 'green'} : null,
+            view === 1 ? {backgroundColor: '#72C37AFF'} : null,
           ]}
           onPress={() => setview(1)}>
           <Text style={[styles.btnText, view === 1 ? {color: 'white'} : null]}>
@@ -43,7 +43,7 @@ const HomeScreen = () => {
         <Pressable
           style={[
             styles.button,
-            view === 2 ? {backgroundColor: 'green'} : null,
+            view === 2 ? {backgroundColor: '#72C37AFF'} : null,
           ]}
           onPress={() => setview(2)}>
           <Text style={[styles.btnText, view === 2 ? {color: 'white'} : null]}>
@@ -53,7 +53,7 @@ const HomeScreen = () => {
       </View>
 
       {view === 0 && <AllItem data={data} />}
-      {view === 1 && <AllItem />}
+      {view === 1 && <AllItem data={data.filter(item => item.stock < 20)} />}
       {view === 2 && <CreateScreen />}
     </View>
   );
@@ -84,7 +84,7 @@ const styles = StyleSheet.create({
     paddingHorizontal: 10,
     borderRadius: 50,
     borderWidth: 1,
-    borderColor: 'green',
+    borderColor: '#72C37AFF',
   },
   btnText: {
     color: 'green',
