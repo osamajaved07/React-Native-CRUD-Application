@@ -1,22 +1,60 @@
 import {Pressable, StyleSheet, Text, View} from 'react-native';
+import AllItem from './AllItem';
+import {useState} from 'react';
+import CreateScreen from './CreateScreen';
+
+const data = [
+  {id: 1, name: 'Wheat', stock: 5, unit: 'kg'},
+  {id: 2, name: 'Rice', stock: 15, unit: 'kg'},
+  {id: 3, name: 'Corn', stock: 25, unit: 'kg'},
+  {id: 4, name: 'Pulse', stock: 35, unit: 'kg'},
+  {id: 5, name: 'Flour', stock: 12, unit: 'kg'},
+  {id: 6, name: 'Sugar', stock: 8, unit: 'kg'},
+];
 
 const HomeScreen = () => {
+  const [view, setview] = useState(0);
   return (
     <View style={[styles.container]}>
       <Text style={styles.title}>Dashboard</Text>
       <View style={styles.buttonContainer}>
-        <Pressable style={styles.button}>
-          <Text style={styles.btnText}>All items</Text>
+        <Pressable
+          style={[
+            styles.button,
+            view === 0 ? {backgroundColor: 'green'} : null,
+          ]}
+          onPress={() => setview(0)}>
+          <Text style={[styles.btnText, view === 0 ? {color: 'white'} : null]}>
+            All items
+          </Text>
         </Pressable>
 
-        <Pressable style={styles.button}>
-          <Text style={styles.btnText}>Low Stock</Text>
+        <Pressable
+          style={[
+            styles.button,
+            view === 1 ? {backgroundColor: 'green'} : null,
+          ]}
+          onPress={() => setview(1)}>
+          <Text style={[styles.btnText, view === 1 ? {color: 'white'} : null]}>
+            Low Stock
+          </Text>
         </Pressable>
 
-        <Pressable style={styles.button}>
-          <Text style={styles.btnText}>Create</Text>
+        <Pressable
+          style={[
+            styles.button,
+            view === 2 ? {backgroundColor: 'green'} : null,
+          ]}
+          onPress={() => setview(2)}>
+          <Text style={[styles.btnText, view === 2 ? {color: 'white'} : null]}>
+            Create
+          </Text>
         </Pressable>
       </View>
+
+      {view === 0 && <AllItem data={data} />}
+      {view === 1 && <AllItem />}
+      {view === 2 && <CreateScreen />}
     </View>
   );
 };
