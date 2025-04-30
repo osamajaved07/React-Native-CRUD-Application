@@ -3,17 +3,16 @@ import AllItem from './AllItem';
 import {useState} from 'react';
 import CreateScreen from './CreateScreen';
 
-const data = [
-  {id: 1, name: 'Wheat', stock: 5, unit: 'kg'},
-  {id: 2, name: 'Rice', stock: 15, unit: 'kg'},
-  {id: 3, name: 'Corn', stock: 25, unit: 'kg'},
-  {id: 4, name: 'Pulse', stock: 35, unit: 'kg'},
-  {id: 5, name: 'Flour', stock: 22, unit: 'kg'},
-  {id: 6, name: 'Sugar', stock: 8, unit: 'kg'},
-];
-
 const HomeScreen = () => {
   const [view, setview] = useState(0);
+  const [data, setdata] = useState([
+    {id: 1, name: 'Wheat', stock: 5, unit: 'kg'},
+    {id: 2, name: 'Rice', stock: 15, unit: 'kg'},
+    {id: 3, name: 'Corn', stock: 25, unit: 'kg'},
+    {id: 4, name: 'Pulse', stock: 35, unit: 'kg'},
+    {id: 5, name: 'Flour', stock: 22, unit: 'kg'},
+    {id: 6, name: 'Sugar', stock: 8, unit: 'kg'},
+  ]);
   return (
     <View style={[styles.container]}>
       <Text style={styles.title}>Dashboard</Text>
@@ -54,7 +53,7 @@ const HomeScreen = () => {
 
       {view === 0 && <AllItem data={data} />}
       {view === 1 && <AllItem data={data.filter(item => item.stock < 20)} />}
-      {view === 2 && <CreateScreen />}
+      {view === 2 && <CreateScreen data={data} setdata={setdata} />}
     </View>
   );
 };
