@@ -27,6 +27,16 @@ const HomeScreen = () => {
             All items
           </Text>
         </Pressable>
+        <Pressable
+          style={[
+            styles.button,
+            view === 0 ? {backgroundColor: '#72C37AFF'} : null,
+          ]}
+          onPress={() => setview(0)}>
+          <Text style={[styles.btnText, view === 0 ? {color: 'white'} : null]}>
+            All items
+          </Text>
+        </Pressable>
 
         <Pressable
           style={[
