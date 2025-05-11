@@ -87,10 +87,16 @@ const CreateScreen = ({data, setdata}) => {
 
               <View style={{flexDirection: 'row', gap: 20}}>
                 <Text style={styles.itemText}>{item.stock}</Text>
-                <Pressable onPress={() => editItemHandler(item)}>
+
+                <Pressable
+                  style={styles.editButton}
+                  onPress={() => editItemHandler(item)}>
                   <Text style={styles.itemText}>Edit</Text>
                 </Pressable>
-                <Pressable onPress={() => deleteItemHandler(item.id)}>
+
+                <Pressable
+                  style={styles.editButton}
+                  onPress={() => deleteItemHandler(item.id)}>
                   <Text style={styles.itemText}>Delete</Text>
                 </Pressable>
               </View>
@@ -152,5 +158,12 @@ const styles = StyleSheet.create({
   itemText: {
     fontWeight: '400',
     fontSize: 14,
+  },
+
+  editButton: {
+    paddingHorizontal: '5%',
+    borderWidth: 1,
+    borderColor: 'black',
+    borderRadius: 12,
   },
 });
