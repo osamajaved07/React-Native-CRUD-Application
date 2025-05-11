@@ -27,16 +27,6 @@ const HomeScreen = () => {
             All items
           </Text>
         </Pressable>
-        <Pressable
-          style={[
-            styles.button,
-            view === 0 ? {backgroundColor: '#72C37AFF'} : null,
-          ]}
-          onPress={() => setview(0)}>
-          <Text style={[styles.btnText, view === 0 ? {color: 'white'} : null]}>
-            All items
-          </Text>
-        </Pressable>
 
         <Pressable
           style={[
@@ -86,17 +76,17 @@ const styles = StyleSheet.create({
   buttonContainer: {
     flexDirection: 'row',
     gap: 10,
-    marginVertical: 10,
+    marginVertical: '5%',
   },
   button: {
     paddingVertical: 5,
-    paddingHorizontal: 10,
+    paddingHorizontal: '4%',
     borderRadius: 50,
-    borderWidth: 1,
-    borderColor: '#72C37AFF',
+    borderWidth: 2,
+    borderColor: '#72C37A',
   },
   btnText: {
     color: 'green',
-    fontSize: 12,
+    fontSize: 16,
   },
 });
